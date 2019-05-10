@@ -8,4 +8,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # 编译
-build
+dist

@@ -15,7 +15,7 @@ app.all("/*", function (req, res, next) {
     res.setHeader("Access-Control-Allow-Origin", req.headers && req.headers.origin ? req.headers.origin : "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Connection, User-Agent, Cookie, Authorization");
-    res.setHeader("Access-Control-Allow-Credentials", true);
+    res.setHeader("Access-Control-Allow-Credentials", 'true');
     console.log("卧槽！插入了！");
     if (req.method === "OPTIONS") {
         res.send(200);

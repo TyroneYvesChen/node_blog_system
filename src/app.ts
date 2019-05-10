@@ -25,7 +25,7 @@ app.all("/*", (req, res, next) => {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Connection, User-Agent, Cookie, Authorization"
   );
-  res.setHeader("Access-Control-Allow-Credentials", true);
+  res.setHeader("Access-Control-Allow-Credentials", 'true');
   console.log("卧槽！插入了！");
   if (req.method === "OPTIONS") {
     res.send(200);
@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/ceshi", (req, res) => {
   console.log("ceshi");
-  db.query(connection, "select * from account", [], data => {
+  db.query(connection, "select * from account", [], (data: any) => {
     console.log(data);
     res.json({
       result: data
@@ -48,7 +48,7 @@ app.use("/ceshi", (req, res) => {
   });
 });
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.status(404).send("Sorry can't find that!");
 });
 app.listen(PORT, () => {
